@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fblog</title>
+    <link rel="stylesheet" href="https://cdn.staticdelivr.com/gfonts/css2?family=Fira+Code:wght@300..700&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="site-title-container">
+            <h1 class="site-title">Terminal</h1>
+            <div class="header-lines"></div>
+        </div>
+        <nav>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+<!-- index.html -->
+<div id="posts-container"></div>
+
+<script>
+  fetch('posts.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('posts-container').innerHTML = data;
+    });
+</script>
+
+    <footer>
+        <p class="terminal-prompt" data-user="guest" data-host="terminal">© 2025 Terminal Blog <span class="cursor"></span></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const titles = document.querySelectorAll('.site-title');
+            titles.forEach(title => {
+                const text = title.textContent;
+                title.textContent = '';
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        title.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                }
+                typeWriter();
+            });
+        });
+    </script>
+</body>
+</html>

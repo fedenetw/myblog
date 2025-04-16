@@ -1,0 +1,188 @@
+        :root {
+            --background: #1a170f;
+            --foreground: #eceae5;
+            --accent: #eec35e;
+            --radius: 0;
+            --font-size: 1rem;
+            --line-height: 1.54em;
+            --header-lines: repeating-linear-gradient(90deg, var(--accent) 0, var(--accent) 1px, transparent 1px, transparent 10px);
+            --dotted-line: repeating-linear-gradient(90deg, var(--accent) 0, var(--accent) 1px, transparent 1px, transparent 5px);
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Fira Code", "JetBrains Mono", Monaco, Consolas, "Ubuntu Mono", monospace;
+            font-size: var(--font-size);
+            font-weight: 400;
+            line-height: var(--line-height);
+            background-color: var(--background);
+            color: var(--foreground);
+            text-rendering: optimizeLegibility;
+            font-variant-ligatures: contextual;
+            -webkit-overflow-scrolling: touch;
+            -webkit-text-size-adjust: 100%;
+            margin: 0;
+            padding: 3rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: calc(var(--font-size) * 1.45);
+            letter-spacing: 0;
+        }
+
+        h2 {
+            font-size: calc(var(--font-size) * 1.35);
+            letter-spacing: 0;
+        }
+
+        h3 {
+            font-size: calc(var(--font-size) * 1.15);
+            letter-spacing: 0;
+        }
+
+        h4, h5, h6 {
+            font-size: calc(var(--font-size) * 1);
+            letter-spacing: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6,
+        p, ul, ol,
+        img, figure, video,
+        table {
+            margin: 25px 0;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            position: relative;
+        }
+
+        a:hover {
+            color: color-mix(in srgb, var(--accent) 85%, transparent);
+        }
+
+        a:focus-visible {
+            outline: 1px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .terminal-prompt::before {
+            content: '[' attr(data-user) '@' attr(data-host) '] $ ';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .site-title-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .site-title {
+            font-size: calc(var(--font-size) * 1.5);
+            margin: 0;
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: var(--background);
+        }
+
+        .header-lines {
+            flex: 1;
+            height: 10px;
+            background: var(--header-lines);
+        }
+
+        nav {
+            margin-bottom: 2rem;
+        }
+
+        nav a {
+            margin-right: 2rem;
+        }
+
+        .post {
+            margin-bottom: 3rem;
+            padding: 0;
+            border: none;
+            position: relative;
+        }
+
+        .post-title {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .hashtag {
+            color: #eec35e;
+        }
+        .post-title::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: var(--dotted-line);
+            margin-top: 0.5rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .post-tag {
+            color: var(--accent);
+        }
+
+        .post-date {
+            color: color-mix(in srgb, var(--foreground) 70%, transparent);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        code {
+            font-family: inherit;
+            background: color-mix(in srgb, var(--foreground) 5%, transparent);
+            color: color-mix(in srgb, var(--foreground) 5%, var(--accent));
+            padding: 0 6px;
+            margin: 0 2px;
+            font-size: 0.95em;
+            border: 1px solid color-mix(in srgb, var(--foreground) 25%, transparent);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: var(--foreground);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid color-mix(in srgb, var(--foreground) 25%, transparent);
+            color: color-mix(in srgb, var(--foreground) 70%, transparent);
+        }
